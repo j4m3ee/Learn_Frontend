@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className="navbar">
             <div className="content">
                 <Link to="/" className="brand">
-                    <i className="fa-calendar-check" style={{fontSize:"22px"}}></i>
+                    <i className="far fa-calendar-check" style={{fontSize:"22px"}}></i>
                     &nbsp;&nbsp;TODONA
                 </Link>
                 <div className="link-page">
