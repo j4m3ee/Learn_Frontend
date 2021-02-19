@@ -1,0 +1,106 @@
+.Card {
+    padding: 1rem 1rem;
+    border-radius: 8px;
+    background-color: white;
+    height: fit-content;
+    transition: all ease-in-out 150ms;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+  
+  .Card:hover {
+    box-shadow: 0 0 0 2px rgba(6, 123, 249, 0.4);
+  }
+  
+  .selected {
+    cursor: default;
+    box-shadow: 0 0 0 3px rgba(6, 123, 249, 0.7);
+  }
+  
+  .selected:hover {
+    cursor: default;
+    box-shadow: 0 0 0 3px rgba(6, 123, 249, 0.7);
+  }
+  
+  .Card .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .Card .container .info {
+    flex: 1 1 auto;
+  }
+  
+  .info .task {
+    font-size: 20px;
+  }
+  
+  .info .time {
+    font-size: 16px;
+    color: #5A5A5A;
+  }
+  
+  .info .task-input {
+    width: 90%;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0c68ca;
+    background-color: #f3f3f3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 0 2px transparent;
+    transition: all ease-in-out 200ms;
+  }
+  
+  .info .task-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(6, 123, 249, 0.4);
+  }
+  
+  .info .time-input {
+    font-size: 18px;
+    color: #5A5A5A;
+    margin-top: 5px;
+    border: none;
+    border-bottom: solid transparent 1px;
+    transition: all ease-in-out 200ms;
+  }
+  
+  .info .time-input:focus {
+    outline: none;
+  }
+  
+  .btn-group button {
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+    font-size: 18px;
+    transition: all ease-in-out 100ms;
+  }
+  
+  .btn-group #edit:hover {
+    background-color: #6C757C;
+    color: white;
+  }
+  
+  .btn-group #done:hover {
+    background-color: #2FA74E;
+    color: white;
+  }
+  
+  .btn-group #del:hover {
+    background-color: #DA3648;
+    color: white;
+  }
+  
+  .btn-group button:focus {
+    cursor: pointer;
+    outline: none;
+  }
+  

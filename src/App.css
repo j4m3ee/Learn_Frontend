@@ -1,16 +1,39 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
+
+@font-face {
+  font-family: "Product Sans";
+  font-weight: 400;
+  src: url(./assets/ProductSans-Regular.ttf);
 }
+
+@font-face {
+  font-family: "Product Sans";
+  font-weight: bold;
+  src: url(./assets/ProductSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Product Sans";
+  font-weight: lighter;
+  src: url(./assets/ProductSans-Light.ttf);
+}
+
+.App {
+  width: 40vw;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+body {
+  margin-top: 60px;
+  background-color: #E5E5E5;
+}
+
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -35,4 +58,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  font-family: "Product Sans", "Kanit", FontAwesome, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
 }
