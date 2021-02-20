@@ -1,6 +1,6 @@
 import React from 'react'
 import TestApi from "./TestApi"
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
+import {BrowserRouter as Router,Switch,Route, Redirect} from 'react-router-dom'
 import TodoPage from './container/todoPage'
 import CreatePage from './container/createPage'
 import TestPage from './container/testPage'
@@ -9,6 +9,7 @@ import "./App.css"
 import DonePage from './container/donePage'
 import ContactPage from './container/contactPage'
 import HomePage from './container/homePage'
+import AuthPage from './container/authPage'
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route exact path="/create" component={CreatePage}/>
           <Route exact path="/done" component={DonePage}/>
           <Route exact path="/contact" component={ContactPage}/>
+          <Route exact path="/auth" component={AuthPage}/>
+          <Redirect to="/"/>
         </Switch>
       </Router>
     </div>

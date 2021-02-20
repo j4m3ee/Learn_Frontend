@@ -23,6 +23,11 @@
     padding: 2.5rem;
 }
 
+.AuthPage h1{
+    font-Size: 48px; 
+    margin: 0.5rem 0;
+}
+
 .TodoPage h1{
     font-Size: 48px; 
     margin: 0.5rem 0;
