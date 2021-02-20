@@ -47,7 +47,7 @@ export default function TodoPage() {
 
     return (
         <div className="TodoPage">
-            <h1 style={{ fontSize: "48px", margin: "0.5rem 0" }}>Todo</h1>
+            <h1>Todo</h1>
             <div className="card-container">
                 {tasks.length !== 0 ? tasks.map((ele, i) => (
                     <Card

@@ -8,6 +8,7 @@ import Navbar from './components/navbar'
 import "./App.css"
 import DonePage from './container/donePage'
 import ContactPage from './container/contactPage'
+import HomePage from './container/homePage'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route exact path="/" component={TodoPage}/>
+          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/todo" component={TodoPage}/>
           <Route exact path="/test" component={TestPage}/>
           <Route exact path="/create" component={CreatePage}/>
           <Route exact path="/done" component={DonePage}/>

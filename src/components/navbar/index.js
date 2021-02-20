@@ -17,7 +17,7 @@ export default function Navbar() {
                     &nbsp;&nbsp;TODONA
                 </Link>
                 <div className="link-page">
-                    <Link to="/" onClick={()=>setMode(0)} style={mode==="/"?{color:"#009BFF"}:null}>Todo</Link>
+                    <Link to="/todo" onClick={()=>setMode(0)} style={mode==="/"?{color:"#009BFF"}:null}>Todo</Link>
                     <Link to="/done" onClick={()=>setMode(1)} style={mode === "/done" ? {color:"#009BFF"}:null}>Done</Link>
                     <Link to="/contact" onClick={()=>setMode(2)} style={mode === "/contact" ? {color: "#009BFF"}:null}>Contact</Link>
                 </div>

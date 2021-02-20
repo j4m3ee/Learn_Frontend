@@ -1,0 +1,77 @@
+.ContactPage .card-container {
+    background-color: White;
+    border-radius : 8px;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px grey;
+    transition: 0.5s;
+}
+
+.ContactPage .card-container .pic img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    object-fit:  cover;
+    transition: 0.5s;
+}
+
+.ContactPage .card-container:hover{
+    padding: 2.5rem;
+}
+
+.TodoPage h1{
+    font-Size: 48px; 
+    margin: 0.5rem 0;
+}
+
+.CreatePage h1{
+    font-Size: 48px; 
+    margin: 0.5rem 0;
+}
+
+.ContactPage .gif-container{
+    background-color: White;
+    border-radius : 8px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 2rem;
+    box-shadow: 5px 5px 5px grey;
+    transition: 0.5s;
+}
+
+.item-m {
+    padding: 5px;
+    width: 50px;
+    transition: 0.5s;
+}
+
+.item-s {
+    padding: 5px;
+    width: 45px;
+    transition: 0.5s;
+}
+
+.item-l {
+    padding: 5px;
+    width: 55px;
+    transition: 0.5s;
+}
+
+.item-m:hover {
+    width: 60px;
+}
+
+.item-s:hover {
+    width: 55px;
+}
+
+.item-l:hover {
+    width: 65px;
+}
