@@ -1,5 +1,7 @@
 # [Web-link](https://snapm.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8dfef843-274e-4996-aba2-a82b2fec16cc/deploy-status)](https://app.netlify.com/sites/snapm/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
