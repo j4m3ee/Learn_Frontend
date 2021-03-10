@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import TestApi from "./TestApi"
 import {BrowserRouter as Router,Switch,Route, Redirect} from 'react-router-dom'
 import TodoPage from './container/todoPage'
@@ -12,6 +12,8 @@ import HomePage from './container/homePage'
 import AuthPage from './container/authPage'
 
 function App() {
+  const [user,setUser] = useState(null)
+
   return (
     <div className="App">
       {/* <TestApi></TestApi> */}
