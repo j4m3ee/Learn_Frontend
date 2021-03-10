@@ -1,4 +1,6 @@
-# [Web-link](https://snapm.netlify.app/)
+# [Explore my web!!! 🎉🎉](https://snapm.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8dfef843-274e-4996-aba2-a82b2fec16cc/deploy-status)](https://app.netlify.com/sites/snapm/deploys)
 
 # Getting Started with Create React App
 
@@ -70,5 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Learn_Frontend
 
