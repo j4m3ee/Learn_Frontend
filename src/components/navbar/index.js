@@ -1,9 +1,11 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useContext } from 'react'
 import {Link} from 'react-router-dom'
 import './navbar.css'
+import {AuthApi} from '../../AuthApi'
 
 export default function Navbar() {
     const [mode,setMode] = useState(0)
+    const {user,setAuth,handleLogout} = useContext(AuthApi)
 
     useEffect(()=>{
         setMode(window.location.pathname)
@@ -21,7 +23,8 @@ export default function Navbar() {
                     <Link to="/done" onClick={()=>setMode(1)} style={mode === "/done" ? {color:"#009BFF"}:null}>Done</Link>
                     <Link to="/contact" onClick={()=>setMode(2)} style={mode === "/contact" ? {color: "#009BFF"}:null}>Contact</Link>
                 </div>
-                <Link to="/create" onClick={()=>setMode(3)}><button className="create-button">New Task</button></Link>
+                <Link to="/create" onClick={()=>setMode(3)}><button className="create-button">+</button></Link>
+                <Link to="/auth" onClick={()=> handleLogout()}><button className="create-button">Logout</button></Link>
             </div>
         </div>
     )

@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import Card from '../components/card'
+import Navbar from '../components/navbar'
+import { AuthApi } from '../AuthApi'
 
 export default function DonePage() {
     const [selectedCard, setSelectedCard] = useState(null)
     const [tasks, setTasks] = useState([])
+    const {user} = useContext(AuthApi)
 
     const fetchData = async () => {
-        const res = await axios.get("https://learn-backend-snapm.herokuapp.com/api/tasks?isFinished=true")
+        const res = await axios.get(`https://learn-backend-snapm.herokuapp.com/api/tasks?isFinished=true&user_id=${user._id}`)
         setTasks(res.data)
     }
 
@@ -42,6 +45,7 @@ export default function DonePage() {
 
     return (
         <div className="TodoPage">
+            <Navbar/>
             <h1>Done</h1>
             <div className="card-container">
                 {tasks.length !== 0 ? tasks.map((ele, i) => (
