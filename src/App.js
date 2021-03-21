@@ -15,7 +15,8 @@ import {
   DonePage,
   ContactPage,
   HomePage,
-  AuthPage
+  AuthPage,
+  ProfilePage
 } from './container'
 import { AuthApi, AuthProvider } from "./AuthApi"
 
@@ -39,7 +40,7 @@ const App = () => {
 }
 
 const Routes = () => {
-  const Auth = React.useContext(AuthApi)
+  const Auth = useContext(AuthApi)
   return (
     <Switch>
       <ProtectedRoute exact path="/" auth={Auth.auth} component={HomePage} />
@@ -48,6 +49,7 @@ const Routes = () => {
       <ProtectedRoute exact path="/create" auth={Auth.auth} component={CreatePage} />
       <ProtectedRoute exact path="/done" auth={Auth.auth} component={DonePage} />
       <ProtectedRoute exact path="/contact" auth={Auth.auth} component={ContactPage} />
+      <ProtectedRoute exact path="/profile" auth={Auth.auth} component={ProfilePage} />
       <ProtectedLogin exact path="/auth" auth={Auth.auth} component={AuthPage} />
       <Redirect to="/" />
     </Switch>

@@ -52,6 +52,12 @@
     transition: all ease-in-out 150ms;
     padding: 0 1rem;
     font-weight: bold;
+    margin: 0.3rem;
+  }
+
+  .navbar .content .right-box{
+    display: flex;
+    flex-direction: row;
   }
   
   .navbar .content .create-button:hover {

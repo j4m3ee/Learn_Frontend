@@ -23,8 +23,12 @@ export default function Navbar() {
                     <Link to="/done" onClick={()=>setMode(1)} style={mode === "/done" ? {color:"#009BFF"}:null}>Done</Link>
                     <Link to="/contact" onClick={()=>setMode(2)} style={mode === "/contact" ? {color: "#009BFF"}:null}>Contact</Link>
                 </div>
-                <Link to="/create" onClick={()=>setMode(3)}><button className="create-button">+</button></Link>
-                <Link to="/auth" onClick={()=> handleLogout()}><button className="create-button">Logout</button></Link>
+                <div className="right-box">
+                    <Link to="/create" onClick={()=>setMode(3)}><button className="create-button"><i class="fas fa-plus-square"></i></button></Link>
+                    <Link to="/profile" onClick={()=>console.log('Go setting')}><button className="create-button"><i class="fas fa-user-cog"></i></button></Link>
+                    <Link to="/auth" onClick={()=> handleLogout()}><button className="create-button">Logout</button></Link>
+                </div>
+                
             </div>
         </div>
     )
