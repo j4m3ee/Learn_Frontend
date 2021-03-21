@@ -14,10 +14,11 @@ import {
   ContactPage,
   HomePage,
   AuthPage,
-  ProfilePage
+  ProfilePage,
+  EditPage
 } from './container'
 import { AuthApi, AuthProvider } from "./AuthApi"
-import HashLoader from "react-spinners/HashLoader";
+import HashLoader from "react-spinners/HashLoader"
 
 const MyApp = () => {
   const { loading } = useContext(AuthApi)
@@ -58,6 +59,7 @@ const Routes = () => {
       <ProtectedRoute exact path="/done" auth={Auth.auth} component={DonePage} />
       <ProtectedRoute exact path="/contact" auth={Auth.auth} component={ContactPage} />
       <ProtectedRoute exact path="/profile" auth={Auth.auth} component={ProfilePage} />
+      <ProtectedRoute exact path="/edit/:id" auth={Auth.auth} component={EditPage} />
       <ProtectedLogin exact path="/auth" auth={Auth.auth} component={AuthPage} />
       <Redirect to="/" />
     </Switch>

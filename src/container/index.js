@@ -6,6 +6,7 @@ import ContactPage from './contactPage'
 import HomePage from './homePage'
 import AuthPage from './authPage'
 import ProfilePage from './profilePage'
+import EditPage from './editPage'
 
 export {TodoPage,
     CreatePage,
@@ -14,5 +15,6 @@ export {TodoPage,
     ContactPage,
     HomePage,
     AuthPage,
-    ProfilePage
+    ProfilePage,
+    EditPage
 }

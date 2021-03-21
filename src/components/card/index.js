@@ -6,7 +6,7 @@ export default function Card({ detail, selected, mode, onClick, onSubmit, onEdit
     const [time,setTime] = useState(currentDate()+ "T" +currentTime())
 
     useEffect(()=>{
-        if(mode=== "edit"){
+        if(mode === "edit"){
             setTask(detail?.taskName)
             setTime(detail?.time)
         }
