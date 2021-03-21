@@ -27,7 +27,7 @@ export default function AuthPage() {
                 console.log('Auth page')
                 console.log(res.data)
                 Cookies.set("token", res.data.token)
-                getUser(res.data.token)
+                window.location.reload();
                 clearInput()
             }else{
                 console.log(res.data)
@@ -46,7 +46,7 @@ export default function AuthPage() {
         })
         console.log(res.data)
         Cookies.set("token", res.data.token)
-        getUser(res.data.token)
+        window.location.reload();
         clearInput()
     }
 

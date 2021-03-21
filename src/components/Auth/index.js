@@ -53,12 +53,9 @@ export default function Auth({
                                 <p>Have an account ?
                         <span className="span" onClick={() => setHasAccount(!hasAccount)}> Sign in</span>
                                 </p>
-
                             </div>
                         )}
                 </div>
-
-
             </div>
         </form>
 
