@@ -4,7 +4,8 @@ import Cookies from 'js-cookie'
 export const AuthApi = createContext()
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [auth,setAuth] = useState(false)
+    const [auth, setAuth] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleLogout = () => {
         console.log('Clear session')
@@ -12,21 +13,23 @@ export const AuthProvider = ({ children }) => {
         setAuth(false)
         Cookies.remove('token')
     }
- 
-    const readCookie = async () =>{
+
+    const readCookie = async () => {
         const token = Cookies.get('token')
-        if(token){
+        if (token) {
             // setAuth(true)
+            setLoading(true)
             const User = await getUser(token)
-            if(User){
+            if (User) {
                 setAuth(true)
                 setUser(User)
-            }else{
+            } else {
                 handleLogout()
             }
+            setLoading(false)
         }
     }
-    
+
     const getUser = async (token) => {
         try {
             const res = await axios.get(`https://learn-backend-snapm.herokuapp.com/api/user`, {
@@ -39,7 +42,7 @@ export const AuthProvider = ({ children }) => {
             }
             return res.data
         } catch (err) {
-            console.log('err : '+ err)
+            console.log('err : ' + err)
             return null
         }
     }
@@ -50,7 +53,14 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthApi.Provider
-            value={{ user, setUser, getUser ,auth,setAuth,handleLogout}}>
+            value={{ 
+                user, 
+                setUser, 
+                getUser, 
+                auth, 
+                setAuth, 
+                handleLogout,
+                loading }}>
             {children}
         </AuthApi.Provider>
     )

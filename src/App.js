@@ -1,11 +1,9 @@
-import React, { useState, useEffect, Component, useContext } from 'react'
+import { useContext } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
-  Link,
-  useHistory
+  Redirect
 } from 'react-router-dom'
 import "./App.css"
 import {
@@ -19,13 +17,23 @@ import {
   ProfilePage
 } from './container'
 import { AuthApi, AuthProvider } from "./AuthApi"
+import HashLoader from "react-spinners/HashLoader";
 
 const MyApp = () => {
+  const { loading } = useContext(AuthApi)
+
   return (
     <div className="App">
-      <Router>
-        <Routes />
-      </Router>
+      {loading ?
+        <div className="loading">
+          <HashLoader className="loading" color={'#272727'} loading={loading} size={150} />
+        </div>
+        :
+        <Router>
+          <Routes />
+        </Router>
+      }
+
     </div>
   );
 }
