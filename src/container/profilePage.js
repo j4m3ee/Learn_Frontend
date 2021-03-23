@@ -1,13 +1,32 @@
-import React,{useContext,useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthApi } from '../AuthApi'
-import { Navbar } from '../components'
+import { Navbar, Profile } from '../components'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
-export default function ProfilePage(){
-    const {user} = useContext(AuthApi)
+export default function ProfilePage() {
+    const { user } = useContext(AuthApi)
+    const history = useHistory()
+    const [phone, setPhone] = useState('')
+    const [details, setDetail] = useState({
+        userName: user.userName,
+        email: user.email,
+        phoneNumber: user.phoneNumber
+    })
 
-    return(
-        <div  className="ContactPage">
-            <Navbar/>
+    async function onSubmit(details) {
+        // await axios.put(`https://learn-backend-snapm.herokuapp.com/api/user?id=${user._id}`, {
+        //     userName: detail.userName,
+        //     email: detail.email,
+        //     phoneNumber: detail.phoneNumber
+        // });
+        // history.push("/");
+        console.log(details)
+    }
+
+    return (
+        <div className="ContactPage">
+            <Navbar />
             <h1 style={{ fontSize: "48px", margin: "0.5rem 0" }}>Profile</h1>
             <div className="profile-container" >
                 <div>
@@ -21,6 +40,11 @@ export default function ProfilePage(){
                         alt="profile-pic" />
                 </div>
             </div>
+            {/* <Profile
+                details={details}
+                setDetail={setDetail}
+                onSubmit={onSubmit}
+            /> */}
         </div>
     )
 }

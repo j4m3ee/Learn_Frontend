@@ -1,34 +1,66 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './profile.css'
 
-export default function Profile({detail,onSubmit}){
-    const [username,setUsername] = useState('')
-    const [email,setEmail] = useState('')
+export default function Profile({ details, setDetail, onSubmit}) {
+    const [data, setData] = useState({
+        userName: "",
+        email: "",
+        phoneNumber: ""
+    })
 
-    useEffect(()=>{
-        setUsername(detail.username)
-        setEmail(detail.email)
-    },[detail])
+    useEffect(() => {
+        setDetail({
+            ...details,
+            userName: data.userName,
+            email: data.email,
+            phoneNumber: data.phoneNumber
+        })
+    }, [data])
 
-    return(
+    return (
         <div className="Profile">
             <div className="container">
                 <div className="info">
+                    <label for="username">Enter username:</label>
                     <input
                         className="username-input"
-                        value={username}
-                        onChange={(e)=>setUsername(e.target.value)}
+                        id="username"
+                        value={details.userName}
+                        onChange={(e) => setData({
+                            ...details,
+                            userName: e.target.value
+                        })}
                         type="text"
                         placeholder="Your username..."
                         required
                     />
-                    <br/>
+                    <br />
+                    <label for="email">Enter your email address:</label>
                     <input
                         className="email-input"
-                        value={email}
-                        onChange={(e)=>setEmail(e.target.value)}
+                        id="email"
+                        value={details.email}
+                        onChange={(e) => setData({
+                            ...details,
+                            email: e.target.value
+                        })}
                         type="email"
                         placeholder="Your email..."
+                        required
+                    />
+                    <br />
+                    <label for="phone">Enter your phone number:</label>
+                    <input
+                        className="phone-input"
+                        id='phone'
+                        value={details.phoneNumber}
+                        onChange={(e) => setData({
+                            ...details,
+                            phoneNumber: e.target.value
+                        })}
+                        type="tel"
+                        placeholder="Your phone number..."
+                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                         required
                     />
                 </div>
@@ -36,10 +68,10 @@ export default function Profile({detail,onSubmit}){
                     <button
                         type="submit"
                         title="Save"
-                        onClick={()=>onSubmit(username,email)}
+                        onClick={() => onSubmit(details)}
                         id="done"
                     />
-                    <i className="fas fa-check"/>
+                    <i className="fas fa-check" />
                 </div>
             </div>
         </div>

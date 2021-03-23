@@ -19,7 +19,7 @@ export default function Auth({
                 <div className="form-group">
                     <label>Username</label>
                     <input
-                        type="email"
+                        type="text"
                         autoFocus
                         required
                         value={email}
