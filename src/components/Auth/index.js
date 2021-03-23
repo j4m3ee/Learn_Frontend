@@ -5,7 +5,8 @@ export default function Auth({
     email, setEmail,
     password, setPassword,
     hasAccount, setHasAccount,
-    handleLogin,handleSignup }) {
+    handleLogin,handleSignup,
+    error, setError }) {
 
     const submitHandler = e => {
         e.preventDefault()
@@ -24,7 +25,6 @@ export default function Auth({
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    {/* <p className="errorMsg">{emailError}</p> */}
                 </div>
 
                 <div className="form-group">
@@ -36,7 +36,7 @@ export default function Auth({
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    {/* <p className="errorMsg">{passwordError}</p> */}
+                    <p className="errorMsg">{error}</p>
                 </div>
 
                 <div>

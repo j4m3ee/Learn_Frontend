@@ -10,7 +10,7 @@ export default function CreatePage() {
     const {user} = useContext(AuthApi)
 
     async function onSubmit(task,time){
-        await axios.post(`https://learn-backend-snapm.herokuapp.com/api/task`,{
+        await axios.post(`${process.env.URL}task`,{
             taskName: task,
             time: time,
             user_id: user._id

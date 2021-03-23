@@ -10,7 +10,28 @@
     transition: 0.5s;
 }
 
+.ContactPage .profile-container {
+    background-color: White;
+    border-radius : 8px;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px grey;
+    transition: 0.5s;
+}
+
 .ContactPage .card-container .pic img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    object-fit:  cover;
+    transition: 0.5s;
+}
+
+.ContactPage .profile-container .pic img{
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -26,6 +47,7 @@
 .AuthPage h1{
     font-Size: 48px; 
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 .TodoPage h1{
