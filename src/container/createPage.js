@@ -8,9 +8,10 @@ import { AuthApi } from '../AuthApi'
 export default function CreatePage() {
     const history = useHistory()
     const {user} = useContext(AuthApi)
+    const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
 
     async function onSubmit(task,time){
-        await axios.post(`${process.env.URL}task`,{
+        await axios.post(`${URL}task`,{
             taskName: task,
             time: time,
             user_id: user._id
