@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import './auth.css'
 
 export default function Auth({
-    email, setEmail,
+    username, setUsername,
     password, setPassword,
     hasAccount, setHasAccount,
-    handleLogin,handleSignup,
-    error, setError }) {
+    handleLogin, handleSignup,
+    email, setEmail,
+    phonenumber, setPhonenumber,
+    error }) {
 
     const submitHandler = e => {
         e.preventDefault()
@@ -22,8 +24,8 @@ export default function Auth({
                         type="text"
                         autoFocus
                         required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
 
@@ -36,9 +38,35 @@ export default function Auth({
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <p className="errorMsg">{error}</p>
+
+                </div>
+                <div>
+                    {!hasAccount ? (<div></div>) : (<div><div className="form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            autoFocus
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+
+                    </div>
+
+                        <div className="form-group">
+                            <label>Phone number</label>
+                            <input
+                                type="tel"
+                                autoFocus
+                                required
+                                value={phonenumber}
+                                onChange={(e) => setPhonenumber(e.target.value)}
+                            />
+
+                        </div></div>)}
                 </div>
 
+                <p className="errorMsg">{error}</p>
                 <div>
                     {!hasAccount ? (
                         <div>
@@ -48,13 +76,13 @@ export default function Auth({
                             </p>
                         </div>
                     ) : (
-                            <div>
-                                <input type="submit" value="Sign up" />
-                                <p>Have an account ?
+                        <div>
+                            <input type="submit" value="Sign up" />
+                            <p>Have an account ?
                         <span className="span" onClick={() => setHasAccount(!hasAccount)}> Sign in</span>
-                                </p>
-                            </div>
-                        )}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </form>

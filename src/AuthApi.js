@@ -60,7 +60,8 @@ export const AuthProvider = ({ children }) => {
                 auth, 
                 setAuth, 
                 handleLogout,
-                loading }}>
+                loading,
+                readCookie }}>
             {children}
         </AuthApi.Provider>
     )

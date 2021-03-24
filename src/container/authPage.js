@@ -7,8 +7,10 @@ import { AuthApi } from '../AuthApi'
 import HashLoader from "react-spinners/HashLoader"
 
 export default function AuthPage() {
-    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [phonenumber,setPhonenumber] = useState('')
     const [error,setError] = useState('')
     const [hasAccount, setHasAccount] = useState(false)
     const { getUser } = useContext(AuthApi)
@@ -17,16 +19,18 @@ export default function AuthPage() {
 
     const clearInput = () => {
         setEmail('')
+        setUsername('')
         setPassword('')
         setError('')
+        setPhonenumber('')
     }
 
     const handleLogin = async () => {
-        console.log("sign in", email)
+        console.log("sign in", username)
         try {
             setLoading(true)
             const res = await axios.post(`${URL}login`, {
-                userName: email,
+                userName: username,
                 password: password
             }).then((res) => {
                 if (res.data.auth) {
@@ -46,7 +50,6 @@ export default function AuthPage() {
                     throw err
                 }
             })
-
         } catch (err) {
             setLoading(false)
             console.log(err)
@@ -55,12 +58,14 @@ export default function AuthPage() {
     }
 
     const handleSignup = async () => {
-        console.log("sign up", email)
+        console.log("sign up", username)
         try {
             setLoading(true)
             await axios.post(`${URL}user`, {
-                userName: email,
-                password: password
+                userName: username,
+                password: password,
+                email: email,
+                phonenumber: phonenumber
             }).then((result) => {
                 if (result.data.auth) {
                     setLoading(false)
@@ -89,14 +94,18 @@ export default function AuthPage() {
         <div className="AuthPage">
             <h1>Welcome to TODONA.</h1>
             <Auth
-                email={email}
-                setEmail={setEmail}
+                username={username}
+                setUsername={setUsername}
                 password={password}
                 setPassword={setPassword}
                 hasAccount={hasAccount}
                 setHasAccount={setHasAccount}
                 handleLogin={handleLogin}
                 handleSignup={handleSignup}
+                email={email}
+                setEmail={setEmail}
+                phonenumber={phonenumber}
+                setPhonenumber={setPhonenumber}
                 error={error}
                 setError={setError}
             />

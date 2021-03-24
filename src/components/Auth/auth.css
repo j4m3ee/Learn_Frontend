@@ -76,7 +76,6 @@ form .form-inner input[type="submit"]{
     font-weight: 700;
     cursor: pointer;
     border: none;
-    
 }
 
 form .form-inner input[type="submit"]:hover{
@@ -100,4 +99,5 @@ p {
 
 .errorMsg {
     color: #FF4880;
+    text-align: center;
 }

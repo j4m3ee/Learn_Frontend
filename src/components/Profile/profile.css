@@ -5,12 +5,9 @@
     height: fit-content;
     transition: all ease-in-out 150ms;
     margin-bottom: 1rem;
-    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
   }
   
-  .Profile:hover {
-    box-shadow: 0 0 0 2px rgba(6, 123, 249, 0.4);
-  }
   
   .Profile .container {
     display: flex;
@@ -94,3 +91,75 @@
     outline: none;
   }
   
+
+  form .form-inner .form-group{
+    display: block;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.form-inner .form-group label{
+    display: block;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+}
+
+.form-inner .form-group:focus-within label{
+    color: #FE4880;
+}
+
+form .form-inner .form-group input{
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+form .form-inner .form-group input:focus{
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+}
+
+form .form-inner input[type="submit"]{
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right,#FFCE00,#FFCE00 50%,#FF4880);
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    
+}
+
+form .form-inner input[type="submit"]:hover{
+    background-position: 100% 0%;
+}
+
+
+
+input[type="submit"]{
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-image: linear-gradient(to right,#FFCE00,#FFCE00 50%,#FF4880);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+input[type="submit"]:hover{
+  background-position: 100% 0%;
+}
