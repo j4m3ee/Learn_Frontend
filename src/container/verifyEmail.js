@@ -17,19 +17,23 @@ export default function VerifyEmail() {
     }, [])
 
     return (
-        <div>
-            <h1>Verifying Your account.</h1>
-            {token ? (
-                <div>
-                    <Link to="/auth" onClick={() => console.log('Go Login')}><button className="create-button">Login</button></Link>
+        <div className="ContactPage">
+            <div className="card-container">
+                <div className="info">
+                    <h1>Verifying Your account.</h1>
+                    <br/>
+                    {token ? (
+                        <div>
+                            <Link to="/auth" onClick={() => console.log('Go Login')}><button className="button">Login</button></Link>
+                        </div>
+                    ) : (
+                        <div>
+                            <b>Check your email!</b>
+                        </div>
+                    )}
                 </div>
-            ) : (
-                <div>
-                    <h2>Check your email!</h2>
-                </div>
-            )}
-
-
+            </div>
         </div>
+
     )
 }
