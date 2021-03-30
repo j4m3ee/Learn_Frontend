@@ -7,6 +7,7 @@ import HomePage from './homePage'
 import AuthPage from './authPage'
 import ProfilePage from './profilePage'
 import EditPage from './editPage'
+import VerifyEmail from './verifyEmail'
 
 export {TodoPage,
     CreatePage,
@@ -16,5 +17,6 @@ export {TodoPage,
     HomePage,
     AuthPage,
     ProfilePage,
-    EditPage
+    EditPage,
+    VerifyEmail
 }

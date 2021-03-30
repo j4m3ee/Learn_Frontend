@@ -5,8 +5,10 @@ import axios from 'axios'
 import Cookies from 'js-cookie'
 import { AuthApi } from '../AuthApi'
 import HashLoader from "react-spinners/HashLoader"
+import { useHistory } from 'react-router'
 
 export default function AuthPage() {
+    const history = useHistory()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -70,9 +72,10 @@ export default function AuthPage() {
                 if (result.data.auth) {
                     setLoading(false)
                     console.log(result.data)
-                    Cookies.set("token", result.data.token)
-                    window.location.reload();
+                    // Cookies.set("token", result.data.token)
+                    // window.location.reload();
                     clearInput()
+                    history.push(`/verify`)
                 } else {
                     throw result.data
                 }

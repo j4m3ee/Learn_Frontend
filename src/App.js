@@ -15,7 +15,8 @@ import {
   HomePage,
   AuthPage,
   ProfilePage,
-  EditPage
+  EditPage,
+  VerifyEmail
 } from './container'
 import { AuthApi, AuthProvider } from "./AuthApi"
 import HashLoader from "react-spinners/HashLoader"
@@ -61,6 +62,8 @@ const Routes = () => {
       <ProtectedRoute exact path="/profile" auth={Auth.auth} component={ProfilePage} />
       <ProtectedRoute exact path="/edit/:id" auth={Auth.auth} component={EditPage} />
       <ProtectedLogin exact path="/auth" auth={Auth.auth} component={AuthPage} />
+      <ProtectedLogin exact path="/verify/:token" auth={Auth.auth} component={VerifyEmail} />
+      <ProtectedLogin exact path="/verify" auth={Auth.auth} component={VerifyEmail} />
       <Redirect to="/" />
     </Switch>
   )
