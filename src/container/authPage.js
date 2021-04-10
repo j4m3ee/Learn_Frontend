@@ -11,6 +11,7 @@ export default function AuthPage() {
     const history = useHistory()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [passconfirm, setPassconfirm] = useState('')
     const [email, setEmail] = useState('')
     const [phonenumber,setPhonenumber] = useState('')
     const [error,setError] = useState('')
@@ -25,6 +26,7 @@ export default function AuthPage() {
         setPassword('')
         setError('')
         setPhonenumber('')
+        setPassconfirm('')
     }
 
     const handleLogin = async () => {
@@ -63,6 +65,7 @@ export default function AuthPage() {
         console.log("sign up", username)
         try {
             setLoading(true)
+            if(password != passconfirm) throw {message:'Password didn\'t match 😣'}
             await axios.post(`${URL}user`, {
                 userName: username,
                 password: password,
@@ -72,8 +75,6 @@ export default function AuthPage() {
                 if (result.data.auth) {
                     setLoading(false)
                     console.log(result.data)
-                    // Cookies.set("token", result.data.token)
-                    // window.location.reload();
                     clearInput()
                     history.push(`/verify`)
                 } else {
@@ -111,6 +112,8 @@ export default function AuthPage() {
                 setPhonenumber={setPhonenumber}
                 error={error}
                 setError={setError}
+                passconfirm={passconfirm}
+                setPassconfirm={setPassconfirm}
             />
             {loading ?
         <div className="auth-loading">

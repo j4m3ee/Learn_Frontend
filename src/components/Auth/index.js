@@ -8,6 +8,7 @@ export default function Auth({
     handleLogin, handleSignup,
     email, setEmail,
     phonenumber, setPhonenumber,
+    passconfirm, setPassconfirm,
     error }) {
 
     const submitHandler = e => {
@@ -41,29 +42,41 @@ export default function Auth({
 
                 </div>
                 <div>
-                    {!hasAccount ? (<div></div>) : (<div><div className="form-group">
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            autoFocus
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
+                    {!hasAccount ? (<div></div>) : (
+                        <div>
+                            <div className="form-group">
+                                <label>Confirm Password</label>
+                                <input
+                                    type="password"
+                                    autoFocus
+                                    required
+                                    value={passconfirm}
+                                    onChange={(e) => setPassconfirm(e.target.value)}
+                                />
+                            </div>
 
-                    </div>
+                            <div className="form-group">
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    autoFocus
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
 
-                        <div className="form-group">
-                            <label>Phone number</label>
-                            <input
-                                type="tel"
-                                autoFocus
-                                required
-                                value={phonenumber}
-                                onChange={(e) => setPhonenumber(e.target.value)}
-                            />
+                            <div className="form-group">
+                                <label>Phone number</label>
+                                <input
+                                    type="tel"
+                                    autoFocus
+                                    required
+                                    value={phonenumber}
+                                    onChange={(e) => setPhonenumber(e.target.value)}
+                                />
 
-                        </div></div>)}
+                            </div></div>)}
                 </div>
 
                 <p className="errorMsg">{error}</p>

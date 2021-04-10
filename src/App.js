@@ -35,7 +35,6 @@ const MyApp = () => {
           <Routes />
         </Router>
       }
-
     </div>
   );
 }
@@ -46,7 +45,6 @@ const App = () => {
       <MyApp />
     </AuthProvider>
   )
-
 }
 
 const Routes = () => {
