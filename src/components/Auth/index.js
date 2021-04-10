@@ -70,13 +70,15 @@ export default function Auth({
                                 <label>Phone number</label>
                                 <input
                                     type="tel"
+                                    pattern="[0-9]{10}"
                                     autoFocus
                                     required
                                     value={phonenumber}
                                     onChange={(e) => setPhonenumber(e.target.value)}
                                 />
 
-                            </div></div>)}
+                            </div>
+                        </div>)}
                 </div>
 
                 <p className="errorMsg">{error}</p>
