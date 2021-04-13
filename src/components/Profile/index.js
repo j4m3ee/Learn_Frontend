@@ -8,6 +8,11 @@ export default function Profile({ details, setDetail, onSubmit }) {
         phonenumber: ""
     })
 
+    const submitHandler = e => {
+        e.preventDefault()
+        onSubmit()
+    }
+
     useEffect(() => {
         setDetail({
             ...details,
@@ -18,14 +23,11 @@ export default function Profile({ details, setDetail, onSubmit }) {
     }, [data])
 
     return (
-        <div className="Profile">
-            <div className="container">
+        <form onSubmit={submitHandler}>
                 <div className="form-inner">
                     <div className="form-group">
                         <label for="username">Enter username:</label>
                         <input
-                            className="username-input"
-                            id="username"
                             value={details.userName}
                             onChange={(e) => setData({
                                 ...details,
@@ -39,8 +41,7 @@ export default function Profile({ details, setDetail, onSubmit }) {
                     <div className="form-group">
                         <label for="email">Enter your email address:</label>
                         <input
-                            className="email-input"
-                            id="email"
+                            autoFocus
                             value={details.email}
                             onChange={(e) => setData({
                                 ...details,
@@ -54,34 +55,22 @@ export default function Profile({ details, setDetail, onSubmit }) {
                     <div className="form-group">
                         <label for="phone">Enter your phone number:</label>
                         <input
-                            className="phone-input"
-                            id='phone'
+                            type="tel"
+                            pattern="[0-9]{10}"
+                            autoFocus
                             value={details.phonenumber}
                             onChange={(e) => setData({
                                 ...details,
                                 phonenumber: e.target.value
                             })}
-                            type="tel"
                             placeholder="Your phone number..."
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                             required
                         />
                     </div>
-
+                    <div>
+                        <input type="submit" value="Save" />
+                    </div>
                 </div>
-                {/* <div className="btn-group">
-                    <button
-                        type="submit"
-                        title="Save"
-                        onClick={() => onSubmit()}
-                        id="done"
-                    />
-                    <i className="fas fa-check" />
-                </div> */}
-                <div>
-                    <input type="submit" onClick={onSubmit} value="Save" />
-                </div>
-            </div>
-        </div>
+            </form>
     )
 }
