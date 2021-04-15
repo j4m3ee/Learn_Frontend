@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
     const readCookie = async () => {
         const token = Cookies.get('token')
         if (token) {
-            // setAuth(true)
             setLoading(true)
             const User = await getUser(token)
             if (User) {

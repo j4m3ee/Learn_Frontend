@@ -10,6 +10,26 @@
     transition: 0.5s;
 }
 
+.stat-container {
+    background-color: White;
+    border-radius : 8px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px grey;
+    transition: 0.5s;
+}
+
+.stat-container:hover{
+    box-shadow: 1px 1px 1px grey;
+}
+
+.stat-container h1{
+    font-size: 40px;
+}
+
 .ContactPage .profile-container {
     background-color: White;
     border-radius : 8px;
@@ -41,7 +61,11 @@
 }
 
 .ContactPage .card-container:hover{
-    transform:scale(1.05);
+    box-shadow: 1px 1px 1px grey;
+}
+
+.ContactPage .gif-container:hover{
+    box-shadow: 1px 1px 1px grey;
 }
 
 .AuthPage h1{
