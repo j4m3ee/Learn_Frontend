@@ -11,8 +11,6 @@ export default function ProfilePage() {
 
     async function onSubmit() {
         await axios.put(`https://learn-backend-snapm.herokuapp.com/api/user?id=${user._id}`, {
-            userName: details.userName,
-            email: details.email,
             phonenumber: details.phonenumber
         });
         history.push("/");
