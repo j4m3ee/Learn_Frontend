@@ -28,7 +28,6 @@ export default function Navbar() {
                     <Link to="/profile" onClick={()=>console.log('Go setting')}><button className="create-button"><i class="fas fa-user-cog"></i></button></Link>
                     <Link to="/auth" onClick={()=> handleLogout()}><button className="create-button">Logout</button></Link>
                 </div>
-                
             </div>
         </div>
     )

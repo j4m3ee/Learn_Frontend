@@ -3,8 +3,10 @@ import { AuthApi } from '../AuthApi'
 import Navbar from '../components/navbar'
 import axios from 'axios'
 import PropagateLoader from "react-spinners/PropagateLoader";
+import { useHistory } from 'react-router';
 
 export default function HomePage() {
+    const history = useHistory()
     const { user } = useContext(AuthApi)
     const [data, setData] = useState('')
 
@@ -34,12 +36,12 @@ export default function HomePage() {
                 </div>
                 :
                 <div>
-                    <div className="stat-container">
+                    <div className="stat-container" onClick={()=>history.push(`/todo`)} style={{cursor: "pointer"}}>
                         <h2>✨ Todo task</h2>
                         <h1 style={{marginRight:"50px",color:"#FE4880"}}>{data.undoneTask}</h1>
                     </div>
 
-                    <div className="stat-container">
+                    <div className="stat-container" onClick={()=>history.push(`/done`)} style={{cursor: "pointer"}}>
                         <h2>✨ Done task</h2>
                         <h1 style={{marginRight:"50px",color:"#72BB0F"}}>{data.doneTask}</h1>
                     </div>
