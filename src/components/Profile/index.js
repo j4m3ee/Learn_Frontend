@@ -26,7 +26,7 @@ export default function Profile({ details, setDetail, onSubmit }) {
         <form onSubmit={submitHandler}>
             <div className="form-inner">
                 <div className="form-group">
-                    <label for="username">Your username:<span className="span"> *</span></label>
+                    <label for="username"><i class="fas fa-lock"></i>&nbsp;&nbsp;Your username :</label>
                     <input
                         autoFocus
                         value={details.userName}
@@ -40,8 +40,9 @@ export default function Profile({ details, setDetail, onSubmit }) {
                     />
                     
                 </div>
+                
                 <div className="form-group">
-                    <label for="email">Your email address:<span className="span"> *</span></label>
+                    <label for="email"><i class="fas fa-lock"></i>&nbsp;&nbsp;Your email address :</label>
                     <input
                         autoFocus
                         value={details.email}
@@ -55,7 +56,7 @@ export default function Profile({ details, setDetail, onSubmit }) {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="phone">Your phone number:</label>
+                    <label for="phone"><i class="fas fa-lock-open"></i>&nbsp;&nbsp;Your phone number :</label>
                     <input
                         type="tel"
                         pattern="[0-9]{10}"
@@ -72,7 +73,6 @@ export default function Profile({ details, setDetail, onSubmit }) {
                 
                 <div>
                     <input type="submit" value="Save" />
-                    <span className="span">      * mean can't edit</span>
                 </div>
                
             </div>
