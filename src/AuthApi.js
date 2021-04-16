@@ -46,6 +46,14 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const deleteAccount = async () => {
+        setLoading(true)
+        await axios.delete(`https://learn-backend-snapm.herokuapp.com/api/user/${user._id}`)
+        setLoading(false)
+        handleLogout()
+        console.log('delete account')
+    }
+
     useEffect(() => {
         readCookie()
     }, [])
@@ -60,7 +68,8 @@ export const AuthProvider = ({ children }) => {
                 setAuth, 
                 handleLogout,
                 loading,
-                readCookie }}>
+                readCookie,
+                deleteAccount }}>
             {children}
         </AuthApi.Provider>
     )

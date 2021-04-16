@@ -139,11 +139,30 @@ form .form-inner input[type="submit"]{
     
 }
 
+form .form-inner input[type="button"]{
+  display: inline-block;
+  padding: 10px 15px;
+  margin-left: 5%;
+  border-radius: 8px;
+  background-image: linear-gradient(to right,#ffa622,#ff6600 50%,#FF4880);
+  background-size: 200%;
+  background-position: 0%;
+  transition: 0.4s;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  margin-top: 15px;
+}
+
 form .form-inner input[type="submit"]:hover{
     background-position: 100% 0%;
 }
 
-
+form .form-inner input[type="button"]:hover{
+  background-position: 100% 0%;
+}
 
 input[type="submit"]{
   display: inline-block;

@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import './profile.css'
+import Recaptcha from 'react-recaptcha'
 
-export default function Profile({ details, setDetail, onSubmit }) {
+export default function Profile({ details, setDetail, onSubmit, deleteAccount }) {
+    const [isVerified, setIsVerified] = useState(false)
     const [data, setData] = useState({
         userName: "",
         email: "",
         phonenumber: ""
     })
 
+    const deleteHandler = () => {
+        if (isVerified) {
+            deleteAccount()
+        } else {
+            alert('Please verify that you are a human!')
+        }
+
+    }
+
     const submitHandler = e => {
         e.preventDefault()
-        onSubmit()
+        if (isVerified) {
+            onSubmit()
+        } else {
+            alert('Please verify that you are a human!')
+        }
     }
 
     useEffect(() => {
@@ -38,9 +53,9 @@ export default function Profile({ details, setDetail, onSubmit }) {
                         placeholder="Your username..."
                         required
                     />
-                    
+
                 </div>
-                
+
                 <div className="form-group">
                     <label for="email"><i class="fas fa-lock"></i>&nbsp;&nbsp;Your email address :</label>
                     <input
@@ -56,7 +71,7 @@ export default function Profile({ details, setDetail, onSubmit }) {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="phone"><i class="fas fa-lock-open"></i>&nbsp;&nbsp;Your phone number :</label>
+                    <label for="phone">&nbsp;&nbsp;Your phone number :</label>
                     <input
                         type="tel"
                         pattern="[0-9]{10}"
@@ -70,11 +85,19 @@ export default function Profile({ details, setDetail, onSubmit }) {
                         required
                     />
                 </div>
-                
+
                 <div>
+                    <Recaptcha
+                        sitekey="6LfCkawaAAAAAL4pUFgWI04jhrCavJAWC_v8_sqi"
+                        render="explicit"
+                        verifyCallback={()=>setIsVerified(true)}
+                        onloadCallback={()=>setIsVerified(false)}
+
+                    />
                     <input type="submit" value="Save" />
+                    <input type="button" value="Delete Account" onClick={() => deleteHandler()} />
                 </div>
-               
+
             </div>
         </form>
     )

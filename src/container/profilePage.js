@@ -3,11 +3,14 @@ import { AuthApi } from '../AuthApi'
 import { Navbar, Profile } from '../components'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import Recaptcha from 'react-recaptcha'
+
 
 export default function ProfilePage() {
-    const { user,readCookie } = useContext(AuthApi)
+    const { user,readCookie,deleteAccount } = useContext(AuthApi)
     const history = useHistory()
     const [details, setDetail] = useState({})
+    const [isVerified,setIsVerified] = useState(false)
 
     async function onSubmit() {
         await axios.put(`https://learn-backend-snapm.herokuapp.com/api/user?id=${user._id}`, {
@@ -37,6 +40,7 @@ export default function ProfilePage() {
                 details={details}
                 setDetail={setDetail}
                 onSubmit={onSubmit}
+                deleteAccount={deleteAccount}
             />
         </div>
     )
