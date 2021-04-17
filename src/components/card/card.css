@@ -6,10 +6,11 @@
     transition: all ease-in-out 150ms;
     margin-bottom: 1rem;
     cursor: pointer;
+    box-shadow: 5px 5px 5px grey;
   }
   
   .Card:hover {
-    box-shadow: 0 0 0 2px rgba(6, 123, 249, 0.4);
+    box-shadow: 1px 1px 1px grey;
   }
   
   .selected {
