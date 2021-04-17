@@ -40,11 +40,11 @@ export default function Auth({
                     <label>Password{hasAccount ? (
                             <i className="fas fa-info" style={{ fontSize: "16px", marginLeft: "10px" }}>
                                 <span className="tooltiptext">
-                                    min Length    8
-                                    min Lowercase 1
-                                    min Uppercase 1
-                                    min Numbers   1
-                                    min Symbols   1
+                                    <p>min Length    8</p>
+                                    <p>min Lowercase 1</p>
+                                    <p>min Uppercase 1</p>
+                                    <p>min Numbers   1</p>
+                                    <p>min Symbols   1</p>
                                 </span>
                             </i>       
                     ) : (<div></div>)}</label>
