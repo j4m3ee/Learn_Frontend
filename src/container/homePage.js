@@ -6,9 +6,11 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import { useHistory } from 'react-router';
 
 export default function HomePage() {
+    const defaultImage = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg'
     const history = useHistory()
     const { user } = useContext(AuthApi)
     const [data, setData] = useState('')
+    const [imageURL, setImageURL] = useState(user.profileURL)
 
     const [loading, setLoading] = useState(false)
     const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
@@ -20,6 +22,7 @@ export default function HomePage() {
         setLoading(false)
     }
 
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -27,16 +30,7 @@ export default function HomePage() {
     return (
         <div className="homePage">
             <Navbar />
-            <div className="informationBox">
-                <div className="pic">
-                    <img src={user.profileURL}
-                        alt="profile-pic" />
-                </div>
-                <div className="text">
-                    <h1>Welcome to todona 🎉</h1>
-                    <h2>Hi <span className="span" style={{ cursor: "auto" }}>{user.userName}!</span></h2>
-                </div>
-            </div>
+
 
             {loading ?
                 <div className="loading">
@@ -44,6 +38,17 @@ export default function HomePage() {
                 </div>
                 :
                 <div>
+                    <div className="informationBox">
+                        <div className="pic" onClick={() => history.push(`/profile`)} style={{ cursor: "pointer" }}>
+                            <img src={imageURL}
+                             onError={()=>setImageURL(defaultImage)}
+                                alt="profile-pic" />
+                        </div>
+                        <div className="text">
+                            <h1>Welcome to todona 🎉</h1>
+                            <h2>Hi <span className="span" style={{ cursor: "auto" }}>{user.userName}!</span></h2>
+                        </div>
+                    </div>
                     <div className="stat-container" onClick={() => history.push(`/todo`)} style={{ cursor: "pointer" }}>
                         <h2>✨ Todo task</h2>
                         <h1 style={{ marginRight: "50px", color: "#FE4880" }}>{data.undoneTask}</h1>
