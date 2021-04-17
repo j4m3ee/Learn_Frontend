@@ -7,7 +7,8 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
     const [data, setData] = useState({
         userName: "",
         email: "",
-        phonenumber: ""
+        phonenumber: "",
+        profileURL: ""
     })
 
     const deleteHandler = () => {
@@ -16,7 +17,6 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
         } else {
             alert('Please verify that you are a human!')
         }
-
     }
 
     const submitHandler = e => {
@@ -33,7 +33,8 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
             ...details,
             userName: data.userName,
             email: data.email,
-            phonenumber: data.phonenumber
+            phonenumber: data.phonenumber,
+            profileURL: data.profileURL
         })
     }, [data])
 
@@ -85,6 +86,22 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
                         required
                     />
                 </div>
+
+                <div className="form-group">
+                    <label for="file">&nbsp;&nbsp;URL profile image :</label>
+                    <input
+                        type="url"
+                        autoFocus
+                        value={details.profileURL}
+                        onChange={(e) => setData({
+                            ...details,
+                            profileURL: e.target.value
+                        })}
+                        placeholder="Your profile image url..."
+                        required
+                    />
+                </div>
+
 
                 <div>
                     <Recaptcha

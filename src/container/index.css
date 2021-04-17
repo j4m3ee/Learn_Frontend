@@ -51,6 +51,26 @@
     transition: 0.5s;
 }
 
+.homePage .pic img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    object-fit:  cover;
+    transition: 0.5s;
+    margin-right: 50px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.homePage .pic img:hover{
+    transform:scale(1.2);
+}
+
+.homePage .informationBox{
+    display: flex;
+    margin-top: 80px;
+}
+
 .ContactPage .profile-container .pic img{
     border-radius: 50%;
     width: 100px;

@@ -14,7 +14,8 @@ export default function ProfilePage() {
 
     async function onSubmit() {
         await axios.put(`https://learn-backend-snapm.herokuapp.com/api/user?id=${user._id}`, {
-            phonenumber: details.phonenumber
+            phonenumber: details.phonenumber,
+            profileURL: details.profileURL
         });
         history.push("/");
         readCookie()
@@ -25,6 +26,7 @@ export default function ProfilePage() {
             userName: user.userName,
             email: user.email,
             phonenumber: user.phonenumber,
+            profileURL: user.profileURL
         })
     }
 
