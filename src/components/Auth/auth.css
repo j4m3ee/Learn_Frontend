@@ -101,3 +101,43 @@ p {
     color: #FF4880;
     text-align: center;
 }
+
+.form-group {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .fas .tooltiptext {
+    font-size: 16px;
+    visibility: hidden;
+    width: 50%;
+    background-color: grey;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  
+  .fas .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent grey transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .fas:hover .tooltiptext {
+    visibility: visible;
+  }
+  
