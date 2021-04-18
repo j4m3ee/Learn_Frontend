@@ -132,7 +132,7 @@ export default function Auth({
                     {!hasAccount ? (
                         <div>
                             <input type="submit" value="Sign in" />
-                            <p>Don't have an account ?
+                            <p style={{marginTop:"20px"}}>Don't have an account ?
                             <span className="span" onClick={() => setHasAccount(!hasAccount)}> Sign up</span>
                             </p>
                             <p> Forgot password ?
