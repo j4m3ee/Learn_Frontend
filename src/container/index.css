@@ -166,12 +166,23 @@
   }
 
   .button {
-    background-color: #0c68ca; /* Green */
     border: none;
-    color: white;
-    padding: 10px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right,#ffa622,#ff6600 50%,#FF4880);
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-position: 100% 0%;
 }

@@ -12,7 +12,11 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
     })
 
     const deleteHandler = () => {
+
         if (isVerified) {
+            if (!window.confirm("Are you sure for delete account ❓")) {
+                return console.log('Cancel delete.')
+            }
             deleteAccount()
         } else {
             alert('Please verify that you are a human!')
@@ -101,15 +105,12 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
                         required
                     />
                 </div>
-
-
                 <div>
                     <Recaptcha
                         sitekey="6LfCkawaAAAAAL4pUFgWI04jhrCavJAWC_v8_sqi"
                         render="explicit"
-                        verifyCallback={()=>setIsVerified(true)}
-                        onloadCallback={()=>setIsVerified(false)}
-
+                        verifyCallback={() => setIsVerified(true)}
+                        onloadCallback={() => setIsVerified(false)}
                     />
                     <input type="submit" value="Save" />
                     <input type="button" value="Delete Account" onClick={() => deleteHandler()} />

@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
                     token: token
                 }
             })
-            if (res.data.name == "TokenExpiredError") {
+            if (res.data.name == "TokenExpiredError" || res.data.name == "JsonWebTokenError") {
                 throw res.data
             }
             return res.data
@@ -47,11 +47,26 @@ export const AuthProvider = ({ children }) => {
     }
 
     const deleteAccount = async () => {
-        setLoading(true)
-        await axios.delete(`https://learn-backend-snapm.herokuapp.com/api/user/${user._id}`)
-        setLoading(false)
-        handleLogout()
-        console.log('delete account')
+        try {
+            const token = Cookies.get('token')
+            const res = await axios.delete(`https://learn-backend-snapm.herokuapp.com/api/user`, {
+                headers: {
+                    token: token
+                }
+            })
+            console.log(res.data)
+            if (res.data.name == "TokenExpiredError" || res.data.name == "JsonWebTokenError") {
+                alert('Try to login again. 😕')
+                window.location.reload();
+                throw res.data
+            }
+            handleLogout()
+            console.log('delete account')
+        } catch (err) {
+            console.log('err : ' + err)
+            return null
+        }
+
     }
 
     useEffect(() => {
@@ -60,16 +75,17 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthApi.Provider
-            value={{ 
-                user, 
-                setUser, 
-                getUser, 
-                auth, 
-                setAuth, 
+            value={{
+                user,
+                setUser,
+                getUser,
+                auth,
+                setAuth,
                 handleLogout,
                 loading,
                 readCookie,
-                deleteAccount }}>
+                deleteAccount
+            }}>
             {children}
         </AuthApi.Provider>
     )

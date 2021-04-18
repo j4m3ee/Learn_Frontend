@@ -20,15 +20,17 @@ export default function VerifyEmail() {
         <div className="ContactPage">
             <div className="card-container">
                 <div className="info">
-                    <h1>Verifying Your account.</h1>
+                    <h1>📤 Verify your email.</h1>
                     <br/>
                     {token ? (
                         <div>
-                            <Link to="/auth" onClick={() => console.log('Go Login')}><button className="button">Login</button></Link>
+                            <span style={{fontSize:"20px"}}>Verify success! </span>
+                            <Link to="/auth" onClick={() => console.log('Go Login')}><button className="button">Click here</button></Link>
+                            <span style={{fontSize:"20px"}}> for login! 🎉</span>
                         </div>
                     ) : (
                         <div>
-                            <b>Check your email!</b>
+                            <span style={{fontSize:"20px"}}>Please check your email inbox!</span>
                         </div>
                     )}
                 </div>
