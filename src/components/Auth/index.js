@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import './auth.css'
 
 export default function Auth({
@@ -10,6 +11,8 @@ export default function Auth({
     phonenumber, setPhonenumber,
     passconfirm, setPassconfirm,
     error }) {
+
+    const history = useHistory()
 
     const submitHandler = e => {
         e.preventDefault()
@@ -132,6 +135,9 @@ export default function Auth({
                             <p>Don't have an account ?
                             <span className="span" onClick={() => setHasAccount(!hasAccount)}> Sign up</span>
                             </p>
+                            <p> Forgot password ?
+                            <span className="span" onClick={() => history.push(`/recovery`)}> Recovery </span>
+                            </p>
                         </div>
                     ) : (
                         <div>
@@ -147,3 +153,4 @@ export default function Auth({
 
     )
 }
+

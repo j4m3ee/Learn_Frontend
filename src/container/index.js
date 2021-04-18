@@ -8,8 +8,10 @@ import AuthPage from './authPage'
 import ProfilePage from './profilePage'
 import EditPage from './editPage'
 import VerifyEmail from './verifyEmail'
+import RecoveryPassword from './recoveryPassword'
 
-export {TodoPage,
+export {
+    TodoPage,
     CreatePage,
     TestPage,
     DonePage,
@@ -18,5 +20,6 @@ export {TodoPage,
     AuthPage,
     ProfilePage,
     EditPage,
-    VerifyEmail
+    VerifyEmail,
+    RecoveryPassword
 }
