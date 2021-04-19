@@ -1,70 +1,76 @@
 .navbar {
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    background-color: #272727;
-    display: flex;
-    justify-content: center;
-    top: 0;
-    left: 0;
-  }
-  
-  .navbar .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 40vw;
-    min-width: 500px;
-  }
-  
-  .navbar .content .brand {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .navbar .content .link-page {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .navbar .content .link-page a {
-    margin: 0 1rem;
-    color: white;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all ease-in-out 100ms;
-  }
-  
-  .navbar .content .link-page a:hover {
-    color: #009BFF;
-  }
-  
-  .navbar .content .create-button {
-    font-size: 16px;
-    height: 30px;
-    background-color: #067bf9;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 5px;
-    transition: all ease-in-out 150ms;
-    padding: 0 1rem;
-    font-weight: bold;
-    margin: 0.3rem;
-  }
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background-color: #272727;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
 
-  .navbar .content .right-box{
-    display: flex;
-    flex-direction: row;
+.navbar .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  min-width: 500px;
+}
+
+.navbar .content .brand {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar .content .link-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .content .link-page a {
+  margin: 0 1rem;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all ease-in-out 100ms;
+}
+
+.navbar .content .link-page a:hover {
+  color: #009BFF;
+}
+
+.navbar .content .create-button {
+  font-size: 16px;
+  height: 30px;
+  background-color: #067bf9;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  transition: all ease-in-out 150ms;
+  padding: 0 1rem;
+  font-weight: bold;
+  margin: 0.3rem;
+}
+
+.navbar .content .right-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .content .create-button:hover {
+  background-color: #459dfc;
+}
+
+.navbar .content .create-button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1080px) {
+  .navbar .content .link-page a {
+    margin: 0 0.5rem;
   }
-  
-  .navbar .content .create-button:hover {
-    background-color: #459dfc;
-  }
-  
-  .navbar .content .create-button:focus {
-    outline: none;
-  }
-  
+}
