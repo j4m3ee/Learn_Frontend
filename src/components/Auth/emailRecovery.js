@@ -10,7 +10,7 @@ export default function EmailRecovery({
     return (
         <form onSubmit={submitHandler}>
             <div className="form-inner">
-
+                <div>
                     <div className="form-group">
                         <label>Email
                                 <i className="fas fa-info" style={{ fontSize: "16px", marginLeft: "10px" }}>
@@ -32,7 +32,7 @@ export default function EmailRecovery({
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-
+                </div>
                 <p className="errorMsg">{error}</p>
                 <div>
                     <div>

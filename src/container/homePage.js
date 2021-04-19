@@ -30,8 +30,6 @@ export default function HomePage() {
     return (
         <div className="homePage">
             <Navbar />
-
-
             {loading ?
                 <div className="loading">
                     <PropagateLoader color={'#272727'} loading={loading} size={15} />

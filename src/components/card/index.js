@@ -1,16 +1,19 @@
 import React, {useState,useEffect} from 'react'
+import validator from 'validator'
 import './card.css'
 
 export default function Card({ detail, selected, mode, onClick, onSubmit, onEdit, onDone, onUnDone, onDelete }){
     const [task,setTask] = useState("")
     const [time,setTime] = useState(currentDate()+ "T" +currentTime())
+    const [bgId, setBgID] = useState('default')
 
-    useEffect(()=>{
-        if(mode === "edit"){
-            setTask(detail?.taskName)
-            setTime(detail?.time)
-        }
-    },[detail])
+    // const isAfterCheck = () => {
+    //     if(validator.isAfter(detail.time.split('T')[0])){
+    //         setBgID('iAfter')
+    //     }else{
+    //         setBgID('nAfter')
+    //     }
+    // }
 
     function currentDate(){
         const d = new Date()
@@ -35,8 +38,26 @@ export default function Card({ detail, selected, mode, onClick, onSubmit, onEdit
         return [hour,minute].join(":")
     }
 
+    const isAfterCheck = () => {
+        if(validator.isAfter(detail.time.split('T')[0])){
+                setBgID('nAfter')
+            }else{
+                setBgID('iAfter')
+            }
+    }
+
+    useEffect(()=>{
+        if(mode === "edit"){
+            setTask(detail?.taskName)
+            setTime(detail?.time)
+        }
+        if(detail?.time){
+            isAfterCheck()
+        }
+    },[detail])
+
     return(
-        <div className={selected ? "Card selectd" : "Card"} onClick={onClick}>
+        <div className={selected ? "Card selectd" : "Card"} id={bgId} onClick={onClick}>
             {mode === "create" || mode === "edit" ? (
                 <div className="container">
                     <div className="info">
@@ -71,14 +92,16 @@ export default function Card({ detail, selected, mode, onClick, onSubmit, onEdit
                 </div>
             ) : (
                 <div className="container">
+                    
                     <div className="info">
                         <h4 className="task">{detail.taskName}</h4>
-                        <p className="time">
+                        <b className="time">
                             {new Date(detail.time).toLocaleString([],{
                                 dateStyle: "long",
                                 timeStyle: "short",
                             })}
-                        </p>
+                        </b>
+                        
                     </div>
                     {selected && (
                         <div className="btn-group">
