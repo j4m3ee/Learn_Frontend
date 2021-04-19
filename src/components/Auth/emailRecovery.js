@@ -6,6 +6,7 @@ export default function EmailRecovery({
     submitHandler,
     email, setEmail,
     error }) {
+    const history = useHistory()
 
     return (
         <form onSubmit={submitHandler}>
@@ -31,13 +32,19 @@ export default function EmailRecovery({
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
+
+
                     </div>
                 </div>
                 <p className="errorMsg">{error}</p>
                 <div>
                     <div>
                         <input type="submit" value="Send" />
+                        <p>Or go back to login
+                            <span className="span" onClick={() => history.push(`/auth`)}> Sign in</span> ?
+                        </p>
                     </div>
+
                 </div>
             </div>
         </form>

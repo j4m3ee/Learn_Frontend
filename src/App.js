@@ -87,8 +87,10 @@ const ProtectedLogin = ({ auth, component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={() => !auth ? (
+      render={() => !auth ? (<div>
         <Component />
+      </div>
+        
       ) : (
         <Redirect to="/" />
       )}

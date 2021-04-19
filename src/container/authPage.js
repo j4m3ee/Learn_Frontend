@@ -95,6 +95,7 @@ export default function AuthPage() {
     }
 
     return (
+        
         <div className="AuthPage">
             <h1>Welcome to TODONA.</h1>
             <Auth

@@ -11,7 +11,7 @@ export default function DonePage() {
     const { user } = useContext(AuthApi)
     const [loading, setLoading] = useState(false)
     const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
-    
+
 
     const fetchData = async () => {
         setLoading(true)
@@ -26,11 +26,12 @@ export default function DonePage() {
 
     const onUnDone = async (id) => {
         try {
+            setLoading(true)
             await axios
                 .put(`${URL}task?id=${id}`, {
                     isFinished: false
                 })
-
+            setLoading(false)
             const newTasks = tasks.filter(ele => ele._id !== id)
             setTasks(newTasks)
         } catch (err) {
@@ -40,8 +41,9 @@ export default function DonePage() {
 
     const onDelete = async (id) => {
         try {
+            setLoading(true)
             await axios.delete(`${URL}task/${id}`)
-
+            setLoading(false)
             const newTasks = tasks.filter(ele => ele._id !== id)
             setTasks(newTasks)
         } catch (err) {
