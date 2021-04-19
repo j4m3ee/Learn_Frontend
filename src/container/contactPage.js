@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/navbar'
 import './index.css'
+import profilePic from '../assets/profile.jpg'
 
 export default function ContactPage() {
     return (
@@ -15,7 +16,7 @@ export default function ContactPage() {
                     <p>Tel : 098-696-8769</p>
                 </div>
                 <div className="pic">
-                    <img src="https://scontent.fbkk7-3.fna.fbcdn.net/v/t1.0-9/80713710_2819506218113625_4887337479046168576_o.jpg?_nc_cat=100&ccb=1-3&_nc_sid=09cbfe&_nc_eui2=AeHqFpS55jwDaCNd-lV04i60r63lkpei6QivreWSl6LpCLAGtrvnavtt1TN53DG6Ajtk2sk6x4Hg50iJ1xSqQHVE&_nc_ohc=_sxvaNX2GswAX8bRWtk&_nc_ht=scontent.fbkk7-3.fna&oh=9dcfebe97bbe1316654ea36df466d237&oe=607C6636"
+                    <img src={profilePic}
                         alt="profile-pic" />
                 </div>
             </div>

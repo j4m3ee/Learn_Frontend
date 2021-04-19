@@ -44,11 +44,15 @@
 
 .ContactPage .card-container .pic img{
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     background-color: #eaeaea;
     object-fit:  cover;
     transition: 0.5s;
+}
+
+.ContactPage .card-container .pic img:hover{
+    transform:scale(1.2);
 }
 
 .homePage .pic img{
