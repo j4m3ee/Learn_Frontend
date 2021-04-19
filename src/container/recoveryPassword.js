@@ -35,6 +35,7 @@ export default function RecoveryPassword() {
                 setLoading(false)
                 console.log(res.data)
                 clearInput()
+                alert('Change password success. 🤩')
                 history.push(`/login`)
             } else {
                 throw res.data
@@ -91,11 +92,6 @@ export default function RecoveryPassword() {
                         passConfirm={passConfirm}
                         setPassConfirm={setPassConfirm}
                     />
-                    // <div>
-                    //     <span style={{ fontSize: "20px" }}>Verify success! </span>
-                    //     <Link to="/auth" onClick={() => console.log('Go Login')}><button className="button">Click here</button></Link>
-                    //     <span style={{ fontSize: "20px" }}> for login! 🎉</span>
-                    // </div>
                 ) : (
                     <EmailRecovery
                         email={email}
