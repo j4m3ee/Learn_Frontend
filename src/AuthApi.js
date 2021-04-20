@@ -1,6 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+
 export const AuthApi = createContext()
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)

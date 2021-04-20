@@ -189,3 +189,42 @@
 .button:hover {
     background-position: 100% 0%;
 }
+
+#head {
+    display: flex;
+}
+
+.TodoPage .SearchBox {
+    margin-left: 50px;
+    color: #FF4880;
+}
+
+.searchComponent {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.searchComponent .search-container input[type=text] {
+    width: 30px;
+    margin-right:10px;
+    box-shadow: 5px 5px 5px grey;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 10px 5px;
+    background-color: #F8F8F8;
+    border-radius: 50px;
+    border: none;
+    transition: 0.5s;
+}
+
+/* When the input field gets focus, change its width to 100% */
+
+.searchComponent .search-container input[type=text]:focus {
+    width: 300px;
+    border-radius: 10px;
+    content: 'Search';
+}
+
+.searchComponent .search-container button{
+    display: none;
+}
