@@ -18,11 +18,6 @@ export default function DonePage() {
         setFoundTask(found)
     }
 
-    const onSearchClick = (text, found) => {
-        setFoundTask(found)
-    }
-
-
     const fetchData = async () => {
         setLoading(true)
         const res = await axios.get(`${URL}tasks?isFinished=true&user_id=${user._id}`)
@@ -45,6 +40,7 @@ export default function DonePage() {
             setLoading(false)
             const newTasks = tasks.filter(ele => ele._id !== id)
             setTasks(newTasks)
+            setFoundTask(newTasks)
         } catch (err) {
             console.log(err)
         }
@@ -57,6 +53,7 @@ export default function DonePage() {
             setLoading(false)
             const newTasks = tasks.filter(ele => ele._id !== id)
             setTasks(newTasks)
+            setFoundTask(newTasks)
         } catch (err) {
             console.log(err)
         }
@@ -69,7 +66,6 @@ export default function DonePage() {
                 <h1>Done</h1>
                 <SearchBar
                     onSearchTextChange={(b, e) => onSearchChange(b, e)}
-                    onSearchButtonClick={onSearchClick}
                     placeHolderText={" 🔎"}
                     data={tasks}
                 />
