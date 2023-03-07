@@ -12,7 +12,7 @@ export default function DonePage() {
     const [foundTasks, setFoundTask] = useState([])
     const { user } = useContext(AuthApi)
     const [loading, setLoading] = useState(false)
-    const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
+    const URL = 'https://todona-api.surawit.com/api/'
 
     const onSearchChange = (text, found) => {
         setFoundTask(found)

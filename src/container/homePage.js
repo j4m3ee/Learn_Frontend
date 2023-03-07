@@ -13,7 +13,7 @@ export default function HomePage() {
     const [imageURL, setImageURL] = useState(user.profileURL)
 
     const [loading, setLoading] = useState(false)
-    const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
+    const URL = 'https://todona-api.surawit.com/api/'
 
     const fetchData = async () => {
         setLoading(true)

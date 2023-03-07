@@ -8,7 +8,7 @@ import { AuthApi } from '../AuthApi'
 export default function CreatePage() {
     const history = useHistory()
     const { user } = useContext(AuthApi)
-    const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
+    const URL = 'https://todona-api.surawit.com/api/'
 
     async function onSubmit(task, time) {
         try {

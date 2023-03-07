@@ -17,7 +17,7 @@ export default function AuthPage() {
     const [error,setError] = useState('')
     const [hasAccount, setHasAccount] = useState(false)
     const { getUser } = useContext(AuthApi)
-    const URL = 'https://learn-backend-snapm.herokuapp.com/api/'
+    const URL = 'https://todona-api.surawit.com/api/'
     const [loading,setLoading] = useState(false)
 
     const clearInput = () => {

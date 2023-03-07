@@ -28,7 +28,7 @@ export default function RecoveryPassword() {
         }
 
         setLoading(true)
-        await axios.put(`https://learn-backend-snapm.herokuapp.com/api/recovery/${token}`, {
+        await axios.put(`https://todona-api.surawit.com/api/recovery/${token}`, {
             password: password
         }).then(res => {
             if (res.data.verify) {
@@ -49,7 +49,7 @@ export default function RecoveryPassword() {
 
     const sendRecoveryEmail = async () => {
         setLoading(true)
-        await axios.post(`https://learn-backend-snapm.herokuapp.com/api/recovery`, {
+        await axios.post(`https://todona-api.surawit.com/api/recovery`, {
             email: email
         }).then(res => {
             if (res.data.auth) {

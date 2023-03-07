@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
     const getUser = async (token) => {
         try {
-            const res = await axios.get(`https://learn-backend-snapm.herokuapp.com/api/user`, {
+            const res = await axios.get(`https://todona-api.surawit.com/api/user`, {
                 headers: {
                     token: token
                 }
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
     const deleteAccount = async () => {
         try {
             const token = Cookies.get('token')
-            const res = await axios.delete(`https://learn-backend-snapm.herokuapp.com/api/user`, {
+            const res = await axios.delete(`https://todona-api.surawit.com/api/user`, {
                 headers: {
                     token: token
                 }

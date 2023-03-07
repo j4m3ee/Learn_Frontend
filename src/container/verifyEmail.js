@@ -8,7 +8,7 @@ export default function VerifyEmail() {
     const { token } = useParams();
 
     const verifyToken = async () => {
-        const res = await axios.get(`https://learn-backend-snapm.herokuapp.com/api/verify/${token}`)
+        const res = await axios.get(`https://todona-api.surawit.com/api/verify/${token}`)
         console.log(res)
     }
 

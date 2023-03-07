@@ -13,7 +13,7 @@ export default function ProfilePage() {
     
 
     async function onSubmit() {
-        await axios.put(`https://learn-backend-snapm.herokuapp.com/api/user?id=${user._id}`, {
+        await axios.put(`https://todona-api.surawit.com/api/user?id=${user._id}`, {
             phonenumber: details.phonenumber,
             profileURL: details.profileURL
         });

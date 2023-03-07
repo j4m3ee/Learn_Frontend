@@ -9,10 +9,11 @@ const EditPage = () => {
     const { id } = useParams();
     const [task, setTask] = useState(null);
     const [loading, setLoading] = useState(false)
+    const URL = 'https://todona-api.surawit.com/api/'
 
     async function onSubmit(task, time) {
         setLoading(true)
-        await axios.put(`https://learn-backend-snapm.herokuapp.com/api/task?id=${id}`, {
+        await axios.put(`${URL}task?id=${id}`, {
             taskName: task,
             time: time,
         });
@@ -22,7 +23,7 @@ const EditPage = () => {
 
     const fetchData = async () => {
         setLoading(true)
-        const res = await axios.get(`https://learn-backend-snapm.herokuapp.com/api/task/${id}`);
+        const res = await axios.get(`${URL}task/${id}`);
         setTask(res.data);
         setLoading(false)
     };
