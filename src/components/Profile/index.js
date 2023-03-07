@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './profile.css'
 import Recaptcha from 'react-recaptcha'
+import { SITE_KEY } from '../../config'
 
 export default function Profile({ details, setDetail, onSubmit, deleteAccount }) {
     const [isVerified, setIsVerified] = useState(false)
@@ -107,7 +108,7 @@ export default function Profile({ details, setDetail, onSubmit, deleteAccount })
                 </div>
                 <div>
                     <Recaptcha
-                        sitekey="6LfCkawaAAAAAL4pUFgWI04jhrCavJAWC_v8_sqi"
+                        sitekey={SITE_KEY}
                         render="explicit"
                         verifyCallback={() => setIsVerified(true)}
                         onloadCallback={() => setIsVerified(false)}
