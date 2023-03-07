@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import axios from 'axios'
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { useHistory } from 'react-router';
+import { API_ENDPOINT } from '../config';
 
 export default function HomePage() {
     const defaultImage = 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg'
@@ -13,11 +14,10 @@ export default function HomePage() {
     const [imageURL, setImageURL] = useState(user.profileURL)
 
     const [loading, setLoading] = useState(false)
-    const URL = 'https://todona-api.surawit.com/api/'
 
     const fetchData = async () => {
         setLoading(true)
-        const res = await axios.get(`${URL}taskAnaly/${user._id}`)
+        const res = await axios.get(`${API_ENDPOINT}taskAnaly/${user._id}`)
         setData(res.data)
         setLoading(false)
     }

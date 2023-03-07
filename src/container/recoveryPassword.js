@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useHistory, useParams } from "react-router-dom";
 import HashLoader from "react-spinners/HashLoader"
 import { ChangePassword, EmailRecovery } from '../components';
+import { API_ENDPOINT } from '../config';
 
 export default function RecoveryPassword() {
     const history = useHistory()
@@ -28,7 +29,7 @@ export default function RecoveryPassword() {
         }
 
         setLoading(true)
-        await axios.put(`https://todona-api.surawit.com/api/recovery/${token}`, {
+        await axios.put(`${API_ENDPOINT}recovery/${token}`, {
             password: password
         }).then(res => {
             if (res.data.verify) {
@@ -49,7 +50,7 @@ export default function RecoveryPassword() {
 
     const sendRecoveryEmail = async () => {
         setLoading(true)
-        await axios.post(`https://todona-api.surawit.com/api/recovery`, {
+        await axios.post(`${API_ENDPOINT}recovery`, {
             email: email
         }).then(res => {
             if (res.data.auth) {

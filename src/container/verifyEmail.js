@@ -2,13 +2,14 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useHistory, useParams } from "react-router-dom";
+import { API_ENDPOINT } from '../config';
 
 export default function VerifyEmail() {
     const history = useHistory();
     const { token } = useParams();
 
     const verifyToken = async () => {
-        const res = await axios.get(`https://todona-api.surawit.com/api/verify/${token}`)
+        const res = await axios.get(`${API_ENDPOINT}verify/${token}`)
         console.log(res)
     }
 

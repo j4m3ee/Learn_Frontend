@@ -3,9 +3,9 @@ import Auth from '../components/Auth'
 import './index.css'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { AuthApi } from '../AuthApi'
 import HashLoader from "react-spinners/HashLoader"
 import { useHistory } from 'react-router'
+import { API_ENDPOINT } from '../config'
 
 export default function AuthPage() {
     const history = useHistory()
@@ -16,8 +16,6 @@ export default function AuthPage() {
     const [phonenumber,setPhonenumber] = useState('')
     const [error,setError] = useState('')
     const [hasAccount, setHasAccount] = useState(false)
-    const { getUser } = useContext(AuthApi)
-    const URL = 'https://todona-api.surawit.com/api/'
     const [loading,setLoading] = useState(false)
 
     const clearInput = () => {
@@ -33,7 +31,7 @@ export default function AuthPage() {
         console.log("sign in", username)
         try {
             setLoading(true)
-            const res = await axios.post(`${URL}login`, {
+            await axios.post(`${API_ENDPOINT}login`, {
                 userName: username,
                 password: password
             }).then((res) => {
@@ -66,7 +64,7 @@ export default function AuthPage() {
         try {
             setLoading(true)
             if(password != passconfirm) throw {message:'Password didn\'t match 😣'}
-            await axios.post(`${URL}user`, {
+            await axios.post(`${API_ENDPOINT}user`, {
                 userName: username,
                 password: password,
                 email: email,

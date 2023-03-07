@@ -3,8 +3,7 @@ import { AuthApi } from '../AuthApi'
 import { Navbar, Profile } from '../components'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-
-
+import { API_ENDPOINT } from '../config'
 
 export default function ProfilePage() {
     const { user,readCookie,deleteAccount } = useContext(AuthApi)
@@ -13,7 +12,7 @@ export default function ProfilePage() {
     
 
     async function onSubmit() {
-        await axios.put(`https://todona-api.surawit.com/api/user?id=${user._id}`, {
+        await axios.put(`${API_ENDPOINT}user?id=${user._id}`, {
             phonenumber: details.phonenumber,
             profileURL: details.profileURL
         });

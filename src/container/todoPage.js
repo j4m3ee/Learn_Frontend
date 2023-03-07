@@ -6,6 +6,7 @@ import Navbar from '../components/navbar'
 import { AuthApi } from '../AuthApi'
 import PropagateLoader from "react-spinners/PropagateLoader"
 import SearchBar from 'react-js-search'
+import { API_ENDPOINT } from '../config'
 
 export default function TodoPage() {
     const history = useHistory()
@@ -14,7 +15,6 @@ export default function TodoPage() {
     const [tasks, setTasks] = useState([])
     const { user } = useContext(AuthApi)
     const [loading, setLoading] = useState(false)
-    const URL = 'https://todona-api.surawit.com/api/'
 
     const onSearchChange = (text, found) => {
         setFoundTask(found)
@@ -22,7 +22,7 @@ export default function TodoPage() {
 
     const fetchData = async () => {
         setLoading(true)
-        const res = await axios.get(`${URL}tasks?isFinished=false&user_id=${user._id}`)
+        const res = await axios.get(`${API_ENDPOINT}tasks?isFinished=false&user_id=${user._id}`)
         setTasks(res.data)
         setFoundTask(res.data)
         setLoading(false)
@@ -39,7 +39,7 @@ export default function TodoPage() {
     const onDone = async (id) => {
         try {
             setLoading(true)
-            await axios.put(`${URL}task?id=${id}`, {
+            await axios.put(`${API_ENDPOINT}task?id=${id}`, {
                 isFinished: true
             })
             setLoading(false)
@@ -54,7 +54,7 @@ export default function TodoPage() {
     const onDelete = async (id) => {
         try {
             setLoading(true)
-            await axios.delete(`${URL}task/${id}`)
+            await axios.delete(`${API_ENDPOINT}task/${id}`)
             setLoading(false)
             const newTasks = tasks.filter(ele => ele._id !== id)
             setTasks(newTasks)
